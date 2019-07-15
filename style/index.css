@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, "Microsoft Yahei",sans-serif;
+}
+
+.home-header {
+    background: url(../image/home-bg.png) no-repeat;
+    background-size: 100% auto;
+    text-align: center;
+    padding-bottom: 1.5rem;
+}
+
+.home-header img {
+    width: 67%;
+    /* 32px */
+    margin: 2.3rem;
+}
+
+.home-header  form {
+    background: white;
+    width: 90%;
+    margin: 0 auto;
+    line-height: 2.2rem;
+    border-radius: 2.2rem;
+}
+
+.home-header  form input {
+    width: 75%;
+    border: none;
+    line-height: 2.2rem;
+    font-size: 0.85rem;
+    color: #333;
+    /* 外框 */
+    outline: none;
+}
+
+.home-header  form  button {
+    font-size: 0.9rem;
+    color: #5bd4c7;
+    font-weight: lighter;
+    border: none;
+    background: none;
+}
+
+.home-categories {
+    padding: 0 1rem;
+}
+
+.home-categories dt {
+    display: flex;
+    /* 纵向对其方式居中 */
+    align-items: center;
+    color: #333;
+}
+
+.home-categories dt img {
+    height: 3rem;
+    margin-right: 1rem;
+}
+
+.home-categories dd {
+    margin-left: 0.1rem;
+}
+
+.home-categories dd .tag{
+    background: #f5f8f9;
+    color: #7e8793;
+    display: inline-block;
+    padding: 0.8rem 1.0rem;
+    border-radius: 2rem;
+    margin: 0.3rem 0.3rem;
+    text-decoration: none; 
+    font-size: 0.9rem;
+}
+
+.home-footer {
+    width: 70%;
+    margin: 2rem auto;
+    color: #919aa7;
+    font-size: 0.7rem;
+}
+
+.home-footer p {
+    line-height: 1rem;
+    margin: 0.5rem 0;
+}
