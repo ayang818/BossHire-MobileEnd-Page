@@ -203,14 +203,58 @@ body {
     transform: rotate(45deg);
 }
 
+
 .job-list {
     margin: 0;
     padding: 0;
+}
+
+.job-list li {
     border: 1px solid #f5f8f9;
+    padding: 1rem 0;
 }
 
 .job-list img {
     width: 59px;
     height: 59px;
+    padding: 0 1rem
 }
+
+.job-list a {
+    text-decoration: none;
+}
+
+.job-list .text {
+    padding: 0;
+    width: 340px;
+}
+
+.job-list .text .title{
+    font-size: 15px;
+    color: #414a60;
+    line-height: 15px;
+    padding: 0.2rem  0;
+}
+
+.job-list .text .salary {
+    font-style: normal;
+    font-size: 19px;
+    color: #fc6c38;
+    position: absolute;
+    right: 20px;
+}
+
+.job-list .text .company {
+    font-size: 12px;
+    color: #414a60;
+    padding-bottom: 0.2rem;
+}
+
+.job-list .text .prop span{
+    font-style: normal;
+    font-size: 12px;
+    color: #8892ac;
+}
+
+
 
