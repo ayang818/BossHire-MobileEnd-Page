@@ -6,3 +6,6 @@
 
 ## 职位列表页
 ![](./image/joblist.png)
+
+## 职位详情页
+![](./image/detail.png)
