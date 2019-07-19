@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,9 @@
     <link rel="stylesheet" href="./style/main.css">
     <title>BOSS直聘-互联网招聘神器！</title>
 </head>
+
 <body>
-    <div class="containter">
+    <div class="containter" id="app">
         <div class="home-header">
             <img src="./image/home-search-text.png" alt="招聘就上Boss直聘">
             <form action="">
@@ -18,102 +20,16 @@
             </form>
         </div>
         <div class="home-categories">
-            <dl>
+            <dl v-for='item in categories'>
                 <dt>
-                    <img src="./image/technology.png" alt="" >
-                    <div>技术</div>
+                    <img :src="item.icon" alt="">
+                    <div>{{item.name}}</div>
                 </dt>
+
+                <dd>
+                    <a href="list.html" class="tag" v-for="tag in item.tags">{{tag}}</a>                
+                </dd>
             </dl>
-            <dd>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-            </dd>
-            <dl>
-                <dt>
-                    <img src="./image/product.png" alt="" >
-                    <div>产品</div>
-                </dt>
-            </dl>
-            <dd>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-            </dd>
-            <dl>
-                <dt>
-                    <img src="./image/designer.png" alt="" >
-                    <div>设计</div>
-                </dt>
-            </dl>
-            <dd>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-            </dd>
-            <dl>
-                <dt>
-                    <img src="./image/market.png" alt="" >
-                    <div>市场</div>
-                </dt>
-            </dl>
-            <dd>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-            </dd>
-            <dl>
-                <dt>
-                    <img src="./image/operate.png" alt="" >
-                    <div>运营</div>
-                </dt>
-            </dl>
-            <dd>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-            </dd>
-            <dl>
-                <dt>
-                    <img src="./image/senior.png" alt="" >
-                    <div>职能高级管理</div>
-                </dt>
-            </dl>
-            <dd>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-                <a href="list.html" class="tag">Java</a>
-            </dd>
         </div>
         <div class="home-footer">
             <p>违法和不良信息举报邮箱：jubao@kanzhun.com</p>
@@ -121,4 +37,25 @@
         </div>
     </div>
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/3.0.0/fetch.min.js"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            categories: []
+        },
+        created: function () {
+            // axios
+            fetch("http://127.0.0.1:5500/api/index.json").then(function(res) {
+                return res.json();
+            }).then(function(data) {
+                // console.log(data)
+                vm.categories = data;
+            })
+        }
+    })
+</script>
+
 </html>

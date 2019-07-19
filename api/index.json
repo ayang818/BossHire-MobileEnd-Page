@@ -1,0 +1,16 @@
+[
+    {
+        "icon": "./image/technology.png",
+        "name": "技术",
+        "tags": ["Java", "php", "nodejs"]
+    },
+    {
+        "icon": "./image/technology.png",
+        "name": "管理",
+        "tags": ["Java", "php", "nodejs"]
+    },{
+        "icon": "./image/technology.png",
+        "name": "运行",
+        "tags": ["Java", "php", "nodejs"]
+    }
+]
