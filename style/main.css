@@ -343,6 +343,7 @@ body {
     padding: 0.2rem 0.5rem;
     border-radius: 1rem;
     font-size: 0.75rem;
+    margin-right: 0.3rem;
 }
 
 .job-info .publish-time {
@@ -541,6 +542,7 @@ body {
     color: #9fa3b0;
     font-size: 12px;
     display: inline-block;
+    margin-right: 0.4rem; 
 }
 
 .related-company:after {

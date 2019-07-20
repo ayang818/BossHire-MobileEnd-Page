@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" id="app">
         <div class="top-bar flex padded">
             <img src="./image/logo.png" alt="">
             <form action="" class="flex">
@@ -21,74 +21,72 @@
 
         <div class="job-info padded">
             <div class="title flex">
-                <span>web前端</span>
-                <span class="salary">8k-15k</span>
+                <span>{{job.title}}</span>
+                <span class="salary">{{job.salary}}</span>
             </div>
             <div class="props flex">
-                <div class="items flex">
-                    上海 <i></i> 1-3年 <i></i> 本科
+                <div class="items flex" >
+                    <template v-for="(tag, index) in job.tags">
+                        <i v-if="index > 0"></i>
+                        {{tag}} 
+                    </template>
                 </div>
             </div>
             <div class="tag">
-                <span>Vue.js</span>
-                <span>react</span>
-                <span>node.js</span>
+                <span v-for="label in job.labels">{{label}}</span>
             </div>
             <div class="publish-time">
-                发布于：2019-07-17
+                发布于{{job.publishedData}}
             </div>
         </div>
 
-        <div class="user-info flex padded">
-            <img src="./image/avata.jpg" alt="">
+        <div class="user-info flex padded" v-if="job.user">
+            <img :src="job.user.avatar" alt="">
             <div class="total-desc">
                 <div class="name flex">
-                    <span>阿阳</span>
+                    <span>{{job.user.name}}</span>
                     <span class="like">
                         <img src="./image/link-like.png" alt="">
                         感兴趣
                     </span>
                 </div>
                 <div class="desc">
-                    便利蜂 · 前端工程师
+                    {{job.company.name}} · {{job.user.title}}
                 </div>
             </div>
             <button class="btn">立即沟通</button>
         </div>
 
-        <div class="job-detail padded">
+        <div class="job-detail padded" v-if="job.body && job.company">
             <h3>职位描述<br></h3>
-            <div class="text">
-                工作职责：<br>1、负责移动端、PC等前端JS架构及开发<br>2、负责团队技术架构设计及相关文档编写<br>3、和产品经理及其他研发团队保持良好沟通，确保项目开发顺利进行<br>任职资格：<br>1、统招本科及以上学历，5年或以上互联网公司开发工作经验<br>2、精通前端开发技术，如JavaScript/CSS/HTML等<br>q3、有前端架构经验和前端性能优化经验优先考虑<br>4、熟悉React、VUE、ReactNative、NodeJS等框架优先考虑<br>5、有业绩导向意识，良好的学习能力，有激情，能承受压力
+            <div class="text" v-html="job.body">
+                
             </div>
             <h3>团队介绍<br></h3>
             <div class="tags">
-                <span>公司氛围好</span>
-                <span>不打卡</span>
-                <span>领导nice</span>
+                <span v-for="advantage in job.teams">{{advantage}}</span>
             </div>
             <h3>公司介绍<br></h3>
             <div class="text">
-                北京梦想蜂连锁商业有限公司是一家以科技创新为先导、以安全健康为核心、以便民高效为目标的创新创业企业，公司以“便利蜂”为品牌名称，于2016年12月在北京完成注册申请，注册资金1亿元人民币。公司通过互联网高新技术，配合完善的供应链，以开设24小时的
-                “便
+                {{job.company.body}}
             </div>
             <h3>工商信息<br></h3>
             <div class="text">
                 <div>
-                    <p>便利蜂商贸有限公司</p>
+                    <p>{{job.company.full_name}}</p>
                 </div>
                 <table>
                     <tr>
                         <th>法人代表：</th>
-                        <td>阿阳</td>
+                        <td>{{job.company.props.法人代表}}</td>
                         <th>注册资本：</th>
-                        <td>2000万</td>
+                        <td>{{job.company.props.注册资本}}</td>
                     </tr>
                     <tr>
-                        <th>法人代表：</th>
-                        <td>阿阳</td>
-                        <th>注册资本：</th>
-                        <td>存续（在营、开业、在册）</td>
+                        <th>成立时间：</th>
+                        <td>{{job.company.props.成立时间}}</td>
+                        <th>经营状态：</th>
+                        <td>{{job.company.props.经营状态}}</td>
                     </tr>
                 </table>
                 <p class="grey"><small>数据来源：天眼查</small></p>
@@ -99,47 +97,37 @@
             </div>
         </div>
 
-        <div class="company-info flex padded">
-            <img src="./image/conpany_logo.jpg" alt="">
+        <div class="company-info flex padded" v-if="job.company">
+            <img :src="job.company.logo" alt="">
             <div class="info">
                 <div class="name flex">
-                    <span>阿里巴巴</span>
+                    <span>{{job.company.name}}</span>
                     <button class="btn" type="button">关注该公司</button>
                 </div>
-                <p class="desc">便利蜂商贸有限公司</p>
-                <p class="gray">互联网<i></i>C轮<i></i>10000人以上</p>
+                <p class="desc">{{job.company.full_name}}</p>
+                <p class="gray">
+                    <template v-for="(item, index) in job.company.tags">
+                        <i v-if="index > 0"></i>
+                        {{item}}
+                    </template>
+                </p>
             </div>
         </div>
 
         <div class="related-jobs">
             <h3 class="padded">相似职位</h3>
             <ul class="job-list">
-                <li>
+                <li v-for="relatedJob in job.relatedJobs">
                     <a href="" class="flex">
-                        <img src="./image/conpany_logo.jpg" alt="">
+                        <img :src="relatedJob.icon" alt="">
                         <div class="text">
                             <div class="title">
-                                Java工程师
-                                <span class="salary">15-20k</span>
+                                {{relatedJob.title}}
+                                <span class="salary">{{relatedJob.salary}}</span>
                             </div>
                             <div class="company flex">
-                                阿里巴巴(杭州)
+                                {{relatedJob.company}}
                                 <button class="btn">立即沟通</button>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="" class="flex">
-                        <img src="./image/conpany_logo.jpg" alt="">
-                        <div class="text">
-                            <div class="title">
-                                Java工程师
-                                <span class="salary">15-20k</span>
-                            </div>
-                            <div class="company flex">
-                                阿里巴巴(杭州)
-                                <button class="btn" type="button">立即沟通</button>
                             </div>
                         </div>
                     </a>
@@ -150,23 +138,38 @@
         <div class="related-company">
             <dl class="links-items">
                 <dt>推荐公司</dt>
-                <dd class="tags">
-                    <a href="">商汤科技</a>
-                    <a href="">摇旗科技</a>
-                    <a href="">刑天工作室</a>
-                    <a href="">商高智能</a>
-                    <a href="">凯尔瑞</a>
-                    <a href="">Microsoft Visual Studio Code</a>
+                <dd class="tags" >
+                    <a href="" v-for="company in job.companies">{{company.name}}</a>
                 </dd>
             </dl>
         </div>
 
         <div class="job-footer">
-            <a href="">首页</a><i></i>
-            <a href="">web前端招聘</a><i></i>
-            <a href="">便利蜂web前端招聘</a><i></i>
+            <template v-for="(pathcase, index) in job.path">
+                <i v-if="index > 0"></i>
+                <a :href="pathcase.url">{{pathcase.title}}</a>                   
+            </template>
         </div>
     </div>
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/3.0.0/fetch.min.js"></script>
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data: {
+            job: {},
+        },
+        created: function () {
+            const that = this;
+            fetch("http://127.0.0.1:5500/api/jobdetail.json").then(function(res){
+                return res.json();
+            }).then(function(data){
+                that.job = data;
+            })
+        }
+    })
+</script>
 
 </html>

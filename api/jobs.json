@@ -15,7 +15,7 @@
     },
     {
         "icon": "./image/conpany_logo.jpg",
-        "title-name": "Java工程师",
+        "title": "Java工程师",
         "company": "Alibaba(Hangzhou)",
         "tags": ["杭州", "一年以内", "带专"],
         "salary": "15-20k"

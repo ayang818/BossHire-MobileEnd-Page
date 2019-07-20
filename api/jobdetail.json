@@ -1,0 +1,60 @@
+{
+    "title": "Java工程师",
+    "tags": ["杭州", "一年以内", "带专"],
+    "salary": "15-20k",
+    "publishedData": "2019-07-20T03:10:25.954Z",
+    "labels": ["Vue.js", "React", "Angular"],
+    "user": {
+        "id": 1,
+        "avatar": "./image/avata.jpg",
+        "name": "阿阳",
+        "title": "全栈工程师"
+    },
+    "body": "工作职责：<br>1、负责移动端、PC等前端JS架构及开发<br>2、负责团队技术架构设计及相关文档编写<br>3、和产品经理及其他研发团队保持良好沟通，确保项目开发顺利进行<br>任职资格：<br>1、统招本科及以上学历，5年或以上互联网公司开发工作经验<br>2、精通前端开发技术，如JavaScript/CSS/HTML等<br>q3、有前端架构经验和前端性能优化经验优先考虑<br>4、熟悉React、VUE、ReactNative、NodeJS等框架优先考虑<br>5、有业绩导向意识，良好的学习能力，有激情，能承受压力",
+    "teams": ["公司氛围好", "不打卡", "955"],
+    "company": {
+        "name": "阿里巴巴杭州",
+        "full_name": "阿里妈妈",
+        "tags": ["阿里资源", "不需要融资", "2000人以上"],
+        "logo": "./image/conpany_logo.jpg",
+        "body": " 北京梦想蜂连锁商业有限公司是一家以科技创新为先导、以安全健康为核心、以便民高效为目标的创新创业企业，公司以“便利蜂”为品牌名称，于2016年12月在北京完成注册申请，注册资金1亿元人民币。公司通过互联网高新技术，配合完善的供应链，以开设24小时的便",
+        "props": {
+            "法人代表": "马云",
+            "注册资本": "2000RMB",
+            "成立时间": "2016年",
+            "经营状态": "已上市"
+        }
+    },
+    "relatedJobs": [{
+            "icon": "./image/conpany_logo.jpg",
+            "title": "Java工程师",
+            "company": "阿里巴巴(Hangzhou)",
+            "tags": ["杭州", "一年以内", "带专"],
+            "salary": "15-20k"
+        },
+        {
+            "icon": "./image/conpany_logo.jpg",
+            "title": "Java工程师",
+            "company": "Microsoft(苏州)",
+            "tags": ["苏州", "一年以内", "硕士"],
+            "salary": "15-20k"
+        },
+        {
+            "icon": "./image/conpany_logo.jpg",
+            "title": "Java工程师",
+            "company": "Alibaba(Hangzhou)",
+            "tags": ["杭州", "一年以内", "带专"],
+            "salary": "15-20k"
+        }
+    ],
+    "companies": [
+        {"id": 1,"name": "蚂蚁金服"},
+        {"id": 2,"name": "Leetcode"},
+        {"id": 3,"name": "同花顺"}
+    ],
+    "path": [
+        {"title": "首页", "url": ""},
+        {"title": "web前端", "url": ""},
+        {"title": "阿里巴巴", "url": ""}
+    ]
+}
